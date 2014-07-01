@@ -2,7 +2,8 @@
 $error = $form -> form_handler ();
 $captcha = $form -> generate_captcha ();
 
-$html .= "<h1>Отвечаю.ru</h1>
+$html .= <<<EOD
+<h1>Отвечаю.ru</h1>
 <form  action='' method='POST'>
 	<span>Имя: *</span>$error[0]
 	<input type='text' name='name' id='name' class='inp' value='$error[4]'>
@@ -15,6 +16,6 @@ $html .= "<h1>Отвечаю.ru</h1>
 	<input class='form-input-button send-button' type='submit' value='Отправить'>
 	$error[7]
 	</form>
-";
+EOD;
 ?>
 
