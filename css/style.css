@@ -54,9 +54,13 @@ form {
 	margin:0 auto;
 }
 
-form span {
+form label {
 	font:bold 14px Arial, Helvetica, sans-serif;
 	color:#999;
+}
+
+form label span {
+	color:#e45f56;
 }
 
 form .inp {
@@ -83,6 +87,7 @@ form .inp:focus {
 }
 
 form div {
+	float:left;
 	margin:5px 0 15px 0;
 	font:bold 14px Arial, Helvetica, sans-serif;
 	color:#999;
@@ -97,6 +102,16 @@ form div input {
 	outline:none;
 	width:20px;
 	text-align:center;
+}
+
+form span.captcha_error {
+	display:block;
+	margin-top:5px;
+	margin-left:5px;
+	float:left;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	color: #e45f56;
+	clear:right;
 }
 
 form .form-input-button {
@@ -129,21 +144,21 @@ form .send {
 	color:#48A770;
 }
 
-ul {
+.comments {
 	display:block;
 	max-width:600px;
-	margin:20px auto 20px auto;/*margin-bottom сделать 0 по завершении верстки*/
+	margin:20px auto 20px auto;
 	border-top:1px dashed #E1E1E1;
 	border-bottom:1px dashed #E1E1E1;
 }
 
-ul li {
+.comments li {
 	margin:20px 0 20px 0;
 	border:3px solid #E1E1E1;
 	background:#F5F6F6;
 }
 
-ul li div {
+.comments li div {
 	position:relative;
 	padding:10px 10px 10px 40px;
 	background:#FFF;
@@ -151,7 +166,7 @@ ul li div {
 	color:#999;
 }
 
-ul li div .date {
+.comments li div .date {
 	display:block;
 	position:absolute;
 	right:0;
@@ -160,7 +175,7 @@ ul li div .date {
 	text-transform:uppercase;
 }
 
-ul li div .avatar {
+.comments li div .avatar {
 	display:block;
 	position:absolute;
 	left:0;
@@ -168,7 +183,7 @@ ul li div .avatar {
 	margin:10px 0 0 -30px;
 }
 
-ul li p {
+.comments li p {
 	margin:15px 0 15px 0;
 	padding:0 0 0 40px;
 	font:normal 16px Arial, Helvetica, sans-serif;
@@ -181,24 +196,31 @@ ul li p {
 	margin:0 auto 30px auto;
 }
 
-.paginator .pItem {
-	display:inline-block;
+.paginator li {
+	display:block;
+	float:left;
 	width:30px;
 	margin-right:5px;
 	padding:7px 0;
 	background:#F5F6F6;
 	font:bold 13px Arial, Helvetica, sans-serif;
-	text-decoration:none;
 	text-align:center;
-	color:#999
 }
 
-.paginator .pItem:hover {
+.paginator li a {
+	display:block;
+	width:100%;
+	height:100%;
+	color:#999;
+	text-decoration:none;
+}
+
+.paginator li:hover {
 	background:#79BBDD;
 	color:#FFF;
 }
 
-.paginator .active {
+.paginator li.current {
 	background:#46a4da;
 	color:#FFF;
 }

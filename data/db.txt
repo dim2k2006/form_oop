@@ -76,3 +76,8 @@ Waldemar;waldemar@mail.ru;Однако читал обзор товарища Л
 Анна;dim2k2006@yandex.ru;Привет смотрю все фильмы круза;June 27, 2014 в 18:16;192.168.1.102;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
 Аникро вап;dim2k2006@yandex.ru;привет это тес;July 1, 2014 в 11:57;192.168.1.102;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
 Дмитрий;remmonters.ru@yandex.ru;Том круз тест;July 1, 2014 в 16:02;192.168.1.102;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
+Сергей;valik@yo.ru;привет тестовое сообщение;July 6, 2014 в 21:04;192.168.1.102;Mozilla/5.0 (Windows NT 6.1 WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
+Дмитрий;valik@yo.ru;привет;July 6, 2014 в 21:05;192.168.1.102;Mozilla/5.0 (Windows NT 6.1 WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
+Дмитрий;valik@yo.ru;гогогогооывывы;July 6, 2014 в 21:25;192.168.1.102;Mozilla/5.0 (Windows NT 6.1 WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
+Дмитрий;valik@yo.ru;вовововов;July 6, 2014 в 21:42;192.168.1.102;Mozilla/5.0 (Windows NT 6.1 WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;
+Володя;valoda@yo.ru;Ненавижу девчачие фильмы;July 7, 2014 в 0:53;192.168.1.102;Mozilla/5.0 (Windows NT 6.1 WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36;

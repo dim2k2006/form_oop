@@ -1,21 +1,76 @@
 <?php
-$error = $form -> form_handler ();
-$captcha = $form -> generate_captcha ();
+$fv = new FormValidate();
+//$fdp = new FileDataProcessing('data/db.txt');//класс для работы с файлом
+$sdp = new SqlDataProcessing('gb', 'db', 'root', '', 'localhost', 'utf8');//класс для работы с sql
 
-$html .= <<<EOD
-<h1>Отвечаю.ru</h1>
-<form  action='' method='POST'>
-	<span>Имя: *</span>$error[0]
-	<input type='text' name='name' id='name' class='inp' value='$error[4]'>
-	<span>E-mail: *</span>$error[1]
-	<input type='text' name='email' id='email' class='inp' value='$error[5]'>
-	<span>Сообщение: *</span>$error[2]
-	<textarea name='text_message' id='text_message' class='inp' rows='10' cols='30'>$error[6]</textarea>
-	<div>$captcha[0] $captcha[2] $captcha[1] = <input type='text' name='captcha' id='captcha' value=''>$error[3]</div>
-	<input class='form-input-button' type='reset' value='Очистить'>
-	<input class='form-input-button send-button' type='submit' value='Отправить'>
-	$error[7]
-	</form>
-EOD;
+
+if(count($_POST)>0){
+	foreach($_POST as $key => $value){
+		$$key=$value;
+	}
+	
+	$fv->validField($name, '/^(\w{3,}) ?+/u','<span>Данное поле обязательно к заполнению</span>');
+	$fv->validField($email, '/^([A-Za-z0-9_\.-]+)@([A-Za-z0-9_\.-]+)\.([a-z\.]{2,6})$/','<span>Данное поле обязательно к заполнению</span>');
+	$fv->validField($text_message, '','<span>Данное поле обязательно к заполнению</span>');
+	$fv->validCaptcha($captcha,'answer','<span class="captcha_error">Неверный ответ</span>');
+
+	
+	$canSave = true;
+	foreach($fv->outPut as $value) {
+		if ($value != '') {
+			$canSave = false;
+		} 
+	}
+	
+	if ($canSave) {
+		$date = date("F");
+		$date .= ' '.date("j");
+		$date .= ', '.date("Y");
+		$date .= ' в '.date("G");
+		$date .= ':'.date("i");
+		
+		$ip = $_SERVER['REMOTE_ADDR'];
+		$browser = $_SERVER['HTTP_USER_AGENT'];
+		
+		//$fdp->saveData($name, $email, $text_message, $date, $ip, $browser);//метод для работы с файлом
+		$sdp->saveData($name, $email, $text_message, $date, $ip, $browser);//метод для работы с sql
+	}
+} else {
+	if (isset($_COOKIE['GuestBookName']) && isset($_COOKIE['GuestBookEmail'])) {
+		$fv->error[] = $_COOKIE['GuestBookName'];
+		$fv->error[] = $_COOKIE['GuestBookEmail'];
+	} 
+}
+
+
+
+$fg = new FormGenerate (
+	//action формы
+	'',
+	//method формы
+	'post',
+	//css class формы
+	'message_form',
+	//id формы
+	'message_form',
+	//js событие формы
+	'',
+	//js код события
+	''
+);
+
+
+
+$html .= '<h1>Отвечаю.ru</h1>';
+$html .= $fg->formStart;
+$html .= $fg->getInput('Имя: *'.$fv->outPut[0], 'text', 'name', 'inp', 'name', $fv->error[0]);
+$html .= $fg->getInput('E-mail: *'.$fv->outPut[1], 'text', 'email', 'inp', 'email', $fv->error[1]);
+$html .= $fg->getTextarea('Сообщение: *'.$fv->outPut[2], 'text_message', 'inp', 'text_message', '10', '30', $fv->error[2]);
+$html .= $fg->getCaptcha('captcha', 'captcha', 'captcha');
+$html .= $fv->outPut[3];
+$html .= '<br><br>';
+$html .= $fg->getInput('', 'reset', 'reset_button', 'form-input-button', 'reset-button', 'Очистить');
+$html .= $fg->getInput('', 'submit', 'submit_button', 'form-input-button send-button', 'send-button', 'Отправить');
+$html .= $fg->formEnd;
 ?>
 
